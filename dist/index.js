@@ -43,7 +43,7 @@ var Dropdown = function (_Component) {
         label: props.placeholder || DEFAULT_PLACEHOLDER_STRING,
         value: ''
       },
-      isOpen: false
+      isOpen: props.isOpen
     };
     _this.mounted = true;
     _this.handleDocumentClick = _this.handleDocumentClick.bind(_this);
@@ -174,7 +174,9 @@ var Dropdown = function (_Component) {
     value: function handleDocumentClick(event) {
       if (this.mounted) {
         if (!_reactDom2.default.findDOMNode(this).contains(event.target)) {
-          this.setState({ isOpen: false });
+          if (this.state.isOpen) {
+            this.setState({ isOpen: false });
+          }
         }
       }
     }
@@ -220,5 +222,5 @@ var Dropdown = function (_Component) {
   return Dropdown;
 }(_react.Component);
 
-Dropdown.defaultProps = { baseClassName: 'Dropdown' };
+Dropdown.defaultProps = { baseClassName: 'Dropdown', isOpen: false };
 exports.default = Dropdown;
