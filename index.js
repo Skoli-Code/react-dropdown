@@ -12,7 +12,7 @@ class Dropdown extends Component {
         label: props.placeholder || DEFAULT_PLACEHOLDER_STRING,
         value: ''
       },
-      isOpen: false
+      isOpen: props.isOpen
     }
     this.mounted = true
     this.handleDocumentClick = this.handleDocumentClick.bind(this)
@@ -151,5 +151,5 @@ class Dropdown extends Component {
   }
 }
 
-Dropdown.defaultProps = { baseClassName: 'Dropdown' }
+Dropdown.defaultProps = { baseClassName: 'Dropdown', isOpen: false }
 export default Dropdown
